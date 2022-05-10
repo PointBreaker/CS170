@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{cs170}
+\begin{document}
+
+\question{Study Group}
+List the names and SIDs of the members in your study group.
+If you have no collaborators, you must explicitly write ``none''.
+
+\question{Modeling: Tricks of the Trade}
+One of the most important problems in the field of \emph{statistics} is the
+\emph{linear regression problem}.
+Roughly speaking, this problem involves fitting a straight line to statistical
+data represented by points $(x_1, y_1), (x_2, y_2), \dotsc, (x_n, y_n)$
+on a graph.
+Denoting the line by $y=a + bx$, the objective is to choose the constants $a$
+and $b$ to provide the ``best'' fit according to some criterion.
+The criterion usually used is the \emph{method of least squares}, but there
+are other interesting criteria where linear programming can be used to solve
+for the optimal values of $a$ and $b$.
+
+
+Suppose instead we wish to minimize the sum of the absolute deviations of the data from the line,
+that is,
+$$\min\sum_{i=1}^n \left|y_i - (a + bx_i)\right|$$
+
+Write a linear program with variables $a, b$ to solve this problem.
+
+\emph{Hint: Create a new variable $z_i$ that will equal $|y_i - (a + bx_i)|$ in the optimal solution.}
+
+\question{Jeweler}
+
+You are a jeweler who sells necklaces and rings. Each necklace takes 4 ounces of gold and 2 diamonds to produce, each ring takes 1 ounce of gold and 3 diamonds to produce. You have 80 ounces of gold and 90 diamonds. You make a profit of 60 dollars per necklace you sell and 30 dollars per ring you sell, and want to figure out how many necklaces and rings to produce to maximize your profits.
+
+\begin{subparts}
+\subpart Formulate this problem as a linear programming problem. Draw the feasible region, and
+find the solution (state the cost function, linear constraints, and all vertices except for the origin).
+\subpart Suppose instead that the profit per necklace is $C$ dollars and the profit per ring remains at 30 dollars. For each vertex you listed in the previous part, give the range of $C$ values for which that vertex is the optimal solution.
+\end{subparts}
+
+\question{Standard Form LP}
+Recall that any Linear Program can be reduced to a more constrained \emph{standard form} where all variables are nonnegative, the constraints are given by equations and the objective is that of minimizing a cost function. 
+
+More formally, our variables are $x_i$. Our objective is $\min c^\top x = \sum_i c_i x_i$ for some constants $c_i$. The $j$th constraint is  $\sum_i a_{ij} x_i = b_j$ for some constants $a_{ij}, b_j$. Finally, we also have the constraints $x_i \geq 0$.
+
+An example standard form LP: 
+\begin{center}
+$\mbox{ minimize } 5x_1 + 3x_2$\\
+$s.t.\quad x_1 + x_2 - x_3 = 1, \quad -(x_1 + x_2 - x_3) = -1, \quad -x_1 + 2x_2 + x_4 = 0, \quad -(-x_1 + 2x_2 + x_4) = 0, \quad x_1, x_2, x_3, x_4 \ge 0$
+\end{center} 
+
+For each of the subparts, what system of variables, constraints, and objectives would be equivalent to the following:
+\begin{subparts}
+  \subpart Max Objective: $\max \sum_i c_i x_i$
+  \subpart Upper Bound on Variable: $x_1 \leq b_1$
+  \subpart Lower Bound on Variable: $x_2 \geq b_2$
+  \subpart Bounded Variable: $b_2 \leq x_3 \leq b_1$
+  \subpart Inequality Constraint: $x_1 + x_2 + x_3 \leq b_3$
+  \subpart Min Max Objective: $\min \max (y_1,y_2)$
+  \subpart Unbounded Variable: $x_4 \in R$
+\end{subparts}
+
+\question{Special Points}
+
+Let $G=(V, E)$ be a simple, connected, undirected graph. We say a vertex $v$ is a \emph{special point} if, after we delete $v$ and all edges incident to it, $G$ becomes disconnected. Write an algorithm to identify all special points in $G$ in $O(|V|+|E|)$ time. 
+
+This is a coding problem, so please write code at \url{https://judge.cs170.org/problem/4294967302}. It is \textbf{highly
+recommended} that you design the whole algorithm first and convince yourself it is correct
+before writing any code.
+
+The sample code handles all input and output formatting, converting the graph into an adjacency-list represented as a Python dictionary. In addition, it performs a recursive depth-first-search traversal of the graph. We suggest that you modify this traversal for your purposes. However, you are free to ignore/edit the sample code as you see fit, so long as the test cases pass.
+
+To run your code and see output/errors, click ``Validate'' on the online judge. However, to receive full credit, you must click ``Submit'' and pass the hidden test cases (for which you will not see any output). You can also run your code locally, by calling the \verb|solution| function and passing in a graph, represented as an adjacency list using a Python dictionary.
+
+Please report any technical issues on Piazza. 
+\end{document}

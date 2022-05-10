@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{cs170}
+\begin{document}
+
+\documentclass[11pt]{article}
+\usepackage{cs170}
+
+
+\def\title{Homework 5}
+\def\duedate{3/1/2022, at 10:00 pm (grace period until 11:59pm)}
+
+
+\begin{document}
+\maketitle
+
+
+Due \textbf{\duedate}
+
+
+\question{Study Group}
+List the names and SIDs of the members in your study group.
+If you have no collaborators, you must explicitly write “none”.
+
+\question{Copper Pipes}
+Bubbles has a copper pipe of length n inches and an array of nonnegative integers that contains prices of all pieces of size smaller than $n$. He wants to find the maximum value he can make by cutting up the pipe and selling the pieces. For example, if length of the pipe is $8$ and the values of different pieces are given as following, then the maximum obtainable value is $22$ (by cutting in two pieces of lengths $2$ and $6$).
+\newline
+
+\begin{tabular}{ c | c  c  c  c  c  c  c  c }
+length   & 1 &  2 & 3 & 4 & 5 & 6 & 7 & 8  \\ \hline
+price    & 1 & 5 & 8 & 9 & 10 & 17 & 17 & 20
+\end{tabular}
+\newline
+
+Give a dynamic programming algorithm so Bubbles can find the maximum obtainable value given any pipe length and set of prices.  Clearly describe your algorithm, prove its correctness and runtime.
+
+\question{Egg Drop} 
+
+
+You are given $k$ identical eggs and an $n$ story
+building. You need to figure out the highest floor
+$\ell \in \{0, 1, 2, \ldots n\}$ that you can drop an egg from without
+breaking it. Each egg will never break when dropped from floor $\ell$ or lower, and always breaks if dropped from floor $\ell+1$ or higher. ($\ell = 0$ means the egg always breaks). Once an egg breaks, you cannot use it any more. However, if an egg does not break, you can reuse it.
+
+Let $f(n, k)$ be the minimum number of egg drops that are needed to find $\ell$ (regardless of the value of $\ell$).
+
+\begin{subparts}
+\subpart Find $f(1,k)$, $f(0, k)$, $f(n,1)$, and $f(n,0)$.
+
+\subpart Find a recurrence relation for $f(n,k)$. \emph{Hint: Whenever you drop an egg, call whichever of the egg breaking/not breaking leads to more drops the ``worst-case event''. Since we need to find $\ell$ regardless of its value, you should assume the worst-case event always happens.}
+\end{subparts}
+
+\end{document}
+
+\end{document}

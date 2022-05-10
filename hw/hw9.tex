@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{cs170}
+\begin{document}
+
+\question{How to Gamble With Little Regret} 
+Suppose that you are gambling at a casino. Every day you play at a slot machine, and your goal is to minimize your losses. We
+model this as the experts problem. Every day you must take the advice
+of one of $n$ experts (i.e. play at a slot machine). At the end of each day $t$, if you take advice from expert $i$, the advice costs you some $c_i^t$ in $[0,1]$.  You want to minimize the regret $R$, defined as:
+$$R=\frac{1}{T}\left(\sum^{T}_{t=1}c^t_{i(t)} - \min_{1\leq i\leq n}  \sum^{T}_{t=1}c_i^t\right)$$  
+where $i(t)$ is the expert you choose on day $t$. Notice that in this definition, you are comparing your losses to the best expert, rather than the best
+overall strategy.
+
+Your strategy will
+be probabilities where $p_i^t$ denotes the probability with which you
+choose expert $i$ on day $t$.  Assume an all powerful adversary
+(i.e. the casino) can look at your strategy ahead of time and decide
+the costs associated with each expert on each day. Let $C$ denote
+the set of costs for all experts and all days. Compute $\max_C (\mathbb{E}[R])$, or the maximum
+possible (expected) regret that the adversary can guarantee, for each
+of the following strategies.
+
+\begin{subparts}
+ 
+\subpart Any deterministic strategy, i.e. for each
+$t$, there exists some $i$ such that $p_i^t=1$.
+
+\subpart Always choose an expert according to some fixed probability
+distribution at every time step. That is, fix some $p_1,\ldots, p_n$,
+and for all $t$, set $p_i^t=p_i$.
+
+What distribution minimizes the regret of this strategy? In other words, what is \newline $\text{argmin}_{p_1,\ldots,p_n}\max_{C} (\mathop{\mathbb{E}}[R])$?\\
+\end{subparts}
+
+This analysis should conclude that a good strategy for the problem must necessarily be randomized and adaptive.
+
+\question{Weighted Rock-Paper-Scissors}
+
+You and your friend used to play rock-paper-scissors, and have the loser pay the winner 1 dollar. However, you then learned in CS170 that the best strategy is to pick each move uniformly at random, which took all the fun out of the game.
+
+Your friend, trying to make the game interesting again, suggests playing the following variant: If you win by beating rock with paper, you get 4 dollars from your opponent. If you win by beating scissors with rock, you get 2 dollars. If you win by beating paper with scissors, you get 1 dollar.
+
+\begin{subparts}
+
+\subpart Draw the payoff matrix for this game.
+
+
+\subpart Write a linear program to find the optimal strategy.
+
+\end{subparts}
+
+\question{Domination} 
+
+
+In this problem, we explore a concept called \textit{dominated strategies}. Consider a zero-sum game with the following payoff matrix for the row player:
+
+\begin{tabular}{r r|c|c|c| }
+		\multicolumn{1}{r}{}
+		& \multicolumn{1}{r}{}
+		&  \multicolumn{1}{r}{Column:}
+		& \multicolumn{1}{r}{}
+		& \multicolumn{1}{r}{}\\
+		& & A & B & C \\
+		\cline{2-5}
+		& D & 1 & 2 & -3 \\
+		\cline{2-5}
+		Row: & E & 3 & 2 & -2 \\
+		\cline{2-5}
+		& F & -1 & -2 & 2 \\
+		\cline{2-5}
+\end{tabular} \\
+
+\begin{subparts}
+
+\subpart If the row player plays optimally, can you find the probability that they pick $D$ without directly solving for the optimal strategy? Justify your answer. 
+
+(Hint: How do the payoffs for the row player picking D compare to their payoffs for picking E?) 
+
+\subpart Given the answer to part a, if the both players play optimally, what is the probability that the column player picks $A$?
+
+\subpart Given the answers to part a and b, what are both players' optimal strategies?
+
+\end{subparts}
+
+Note: All parts of this problem can be solved without using an LP solver or solving a system of linear equations.	
+
+\question{(Optional) Minimum Infinity-Norm Cut}
+In the \textsc{Minimum Infinity-Norm Cut} problem, you are given a connected undirected graph $G=(V, E)$ with positive edge weights $w_e$, and you are asked to find a cut in the graph where the largest edge in the cut is as small as possible (note that there is no notion of source or target; any cut with at least one node on each side is valid). 
+
+Show how to reduce \textsc{Minimum Infinity-Norm Cut} to \textsc{Minimum Spanning Tree} in linear time. \textbf{Give a 3-part solution.}
+
+\textit{Hint: Minimum Spanning Tree does not require edge weights to be positive.}
+\end{document}

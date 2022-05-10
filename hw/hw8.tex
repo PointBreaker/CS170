@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{cs170}
+\begin{document}
+
+\question{Study Group}
+List the names and SIDs of the members in your study group.
+If you have no collaborators, you must explicitly write ``none''.
+
+\question{To Infinity and Beyond}
+
+For any vector $\vec{x}$, the infinity norm  $|| \vec{x} ||_{\infty}$ is the element of $\vec{x}$ with the largest magnitude. Given a matrix $A$  of size $m\times n$ and vector $\vec{b}$ of length $m$ , we want to maximize $|| \vec{x} ||_{\infty}$ subject to $A\vec{x} \leq \vec{b}$. Provide an algorithm to solve this problem.
+
+\textit{Hint: Linear programming}
+
+
+
+\question{Flow vs LP}
+You play a middleman in a market of $n$ suppliers
+and  $m$ purchasers.
+The $i$-th supplier can supply up to $s[i]$ products,
+and the $j$-th purchaser would like to buy up to $b[j]$ products.
+
+However, due to legislation, supplier $i$ can only sell  to a purchaser $j$ if they
+are situated at most 1000 miles apart.
+Assume that you're given a list $L$ of all the pairs $(i,j)$ such that
+supplier $i$ is within $1000$ miles of purchaser $j$.
+ Given $n,m,s[1..n],b[1..m],L$ as input,
+your job is to compute the maximum number of products that can be
+sold.
+The run-time of your algorithm must be polynomial in $n$ and $m$.
+
+For part (a) and (b), assume the product is divisible, that is, it's OK to sell a fraction of a product.
+
+
+
+\question{Applications of Max-Flow Min-Cut}
+Review the statement of max-flow min-cut theorem and prove the following two statements.
+\begin{subparts}
+ \subpart
+Let $G = (L \cup R,E)$ be a unweighted bipartite graph. Then $G$ has a $L$-perfect
+matching (a matching with size $|L|$) if and only if, for every set $X \subseteq L$, $X$ is connected to at least $|X|$ vertices
+in $R$. You must prove both directions. \\ \textit{Hint: Use the max-flow min-cut theorem.}
+
+\subpart
+Let $G$ be an unweighted directed graph and $s,t \in V$ be two distinct vertices. Then the maximum number of
+edge-disjoint $s$-$t$ paths equals the minimum number of edges whose removal disconnects $t$ from
+$s$ (\textit{i.e.}, no directed path from $s$ to $t$ after the removal).
+\\ \textit{Hint: show how to decompose a flow of value $k$  into $k$ disjoint paths, and how to
+transform any set of  $k$ edge-disjoint paths into a flow of value $k$.}
+\end{subparts}
+
+
+\question{Meal Replacement}
+
+We are trying to eat cheaply but still meet our minimum dietary needs. We want to consume at least 500 calories of protein per day, 100 calories of carbs per day, and 400 calories of fat per day. We have three options for food we're considering buying: meat, bread, and protein shakes.
+
+\begin{itemize}
+\item We can consume meat, which costs 5 dollars per pound, and gives 500 calories of protein and 500 calories of fat per pound.
+\item We can consume bread, which costs 2 dollars per pound, and gives 50 calories of protein, 300 calories of carbs, and 25 calories of fat per pound.
+\item We can consume protein shakes, which cost 4 dollars per pound, and gives 300 calories of protein, 100 calories of carbs, and 200 calories of fat per pound.
+\end{itemize}
+
+Our goal is to find a combination of these options that meets our daily dietary needs while being as cheap as possible.
+
+\begin{subparts}
+\subpart Formulate this problem as a linear program.
+\subpart Take the dual of your LP from part (a).
+\subpart Suppose now there is a pharmacist trying to assign a price to three pills, with the hopes of getting us to buy these pills instead of food. Each pill provides exactly one of protein, carbs, and fiber.
+
+Interpret the dual LP variables, objective, and constraints as an optimization problem from the pharmacist's perspective.
+\end{subparts}
+\end{document}

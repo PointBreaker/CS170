@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{cs170}
+\begin{document}
+
+\question{Study Group}
+List the names and SIDs of the members in your study group.
+If you have no collaborators, you must explicitly write “none”.
+
+In addition, we would like to share correct student solutions that are well-written with the class after each homework. 
+Are you okay with your correct solutions being used for this purpose? Answer ``Yes'', ``Yes but anonymously'', or ``No''
+
+
+\question{Recurrence Relations}
+
+For each part, find the asymptotic order of growth of $T$; that is, find a function $g$ such that $T(n) = \Theta(g(n))$. In all subparts, you may ignore any issues arising from whether a number is an integer.
+
+\begin{subparts}
+\subpart \(T(n)=4T(n/2)+42n\)
+
+\subpart \(T(n)=4T(n/3)+n^2\)
+
+\subpart \(T(n) = T(3n/5)+T(4n/5)\) (We have $T(1) = 1$)
+\end{subparts}
+
+
+\question{Computing Factorials}
+Consider the problem of computing $N!=1\times2\times\dots\times N$.
+\begin{subparts}
+
+\subpart $N$ is $\log N$ bits long (this is how many bits are needed to store a number the size of $N$).
+Find an $f(N)$ so that $N!$ is $\Theta(f(N)))$ bits long.
+Simplify your answer as much as possible, and give an argument for why it is true.
+
+\textit{Note:} You may not use Stirling's formula.
+
+\vspace{0.3cm}
+
+\subpart Give a simple (naive) algorithm to compute $N!$.
+Use $\Theta(mn)$ as the runtime for multiplying an $m$-bit number and an $n$-bit number.
+
+For this problem, you don't need to write a proof of correctness (that is, just state your algorithm and analyze its runtime).
+
+\end{subparts}
+
+
+\question{Decimal to Binary}
+
+Given the $n$-digit decimal representation of a number, converting it into binary in the natural way takes $O(n^2)$ steps. 
+Give a divide and conquer algorithm to do the conversion and show that it does not take much more time than Karatsuba's 
+algorithm for integer multiplication. 
+
+Just state the main idea behind your algorithm and its runtime analysis; no proof of
+correctness is needed as long as your main idea is clear.
+
+\question{Pareto Optimality}
+
+\begin{subparts}
+
+\subpart Given a set of points $P = \{(x_1, y_1), (x_2, y_2) \ldots (x_n, y_n)\}$, a point $(x_i, y_i) \in P$ is Pareto-optimal if there does not exist any $j \neq i$ such that such that $x_j > x_i$ and $y_j > y_i$. In other words, there is no point in $P$ above and to the right of $(x_i, y_i)$. Design a $O(n \log n)$-time divide-and-conquer algorithm that given $P$, outputs all Pareto-optimal points in $P$. \textbf{Give a 3-part solution}: Algorithm description, proof of correctness, and runtime analysis.
+
+(Hint: Split the array by $x$-coordinate. Show that all points returned by one of the two recursive calls is Pareto-optimal, and that you can get rid of all non-Pareto-optimal points in the other recursive call in linear time).
+
+\subpart Code your solution! Go to \href{https://judge.cs170.org}{https://judge.cs170.org}, sign in, go to the coding problem corresponding to the algorithm question above, and follow the directions. It is highly recommended that you design the whole algorithm first and convince yourself it is correct before writing any code.
+
+Please report any technical issues on Piazza.
+
+\end{subparts}
+
+\end{document}
